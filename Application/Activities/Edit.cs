@@ -41,6 +41,7 @@ namespace Application.Activities
                 activity.City = request.City ?? activity.City;
                 activity.Venue = request.Venue ?? activity.Venue;
 
+                // TODO: If user just clicked save without changing anything, the success will be false.
                 var success = await _context.SaveChangesAsync() > 0;
                 if (success) {
                     return Unit.Value;
