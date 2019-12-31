@@ -5,7 +5,6 @@ import { ActivityFormValues } from "../../../app/models/activity";
 // eslint-disable-next-line
 import { v4 as uuid } from "uuid";
 import { observer } from "mobx-react-lite";
-import ActivityStore from "../../../app/stores/activityStore";
 import { RouteComponentProps } from "react-router-dom";
 import { Form as FinalForm, Field } from "react-final-form";
 import TextInput from "../../../app/common/form/TextInput";
@@ -20,6 +19,7 @@ import {
     composeValidators,
     hasLengthGreaterThan
 } from "revalidate";
+import { RootStoreContext } from "../../../app/stores/rootStore";
 
 const validate = combineValidators({
     title: isRequired({ message: "The event title is required" }),
@@ -44,7 +44,7 @@ const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({
     match,
     history
 }) => {
-    const activityStore = useContext(ActivityStore);
+    const rootStore = useContext(RootStoreContext);
     const {
         // eslint-disable-next-line
         createActivity,
@@ -54,7 +54,7 @@ const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({
         // eslint-disable-next-line
         activity: initialFormState,
         loadActivity
-    } = activityStore;
+    } = rootStore.activityStore;
 
     const [activity, setActivity] = useState(new ActivityFormValues());
     const [loading, setLoading] = useState(false);
