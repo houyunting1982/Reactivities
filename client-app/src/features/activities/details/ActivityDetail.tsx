@@ -6,7 +6,7 @@ import { LoadingComponent } from "../../../app/layout/LoadingComponent";
 import ActivityDetailHeader from "./ActivityDetailHeader";
 import { ActivityDetailInfo } from "./ActivityDetailInfo";
 import { ActivityDetailChat } from "./ActivityDetailChat";
-import { ActivityDetailSidebar } from "./ActivityDetailSidebar";
+import ActivityDetailSidebar from "./ActivityDetailSidebar";
 import { RootStoreContext } from "../../../app/stores/rootStore";
 
 interface DetailParams {
@@ -37,7 +37,7 @@ const ActivityDetail: React.FC<RouteComponentProps<DetailParams>> = ({
                 <ActivityDetailChat />
             </Grid.Column>
             <Grid.Column width={6}>
-                <ActivityDetailSidebar />
+                <ActivityDetailSidebar attendees={activity.attendees} />
             </Grid.Column>
         </Grid>
     );
