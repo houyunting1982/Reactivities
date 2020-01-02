@@ -12,7 +12,8 @@ namespace Persistence {
 
         public DbSet<Value> Values { get; set; } // For the table name inside SQLite
         public DbSet<Activity> Activities { get; set; }
-        public DbSet<UserActivity> UserActivities { get; set;}
+        public DbSet<UserActivity> UserActivities { get; set; }
+        public DbSet<Photo> Photos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder) {
 
