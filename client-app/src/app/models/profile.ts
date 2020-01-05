@@ -1,7 +1,10 @@
-export interface IProfile {
-    displayName: string,
+export interface IProfileLight {
+    displayName: string;
+    bio: string;
+}
+
+export interface IProfile extends IProfileLight {
     username: string,
-    bio: string,
     image: string,
     photos: IPhoto[]
 }

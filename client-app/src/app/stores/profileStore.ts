@@ -93,10 +93,24 @@ export default class ProfileStore {
                 this.setMainLoading = false;
             })
         } catch (error) {
-            toast.error('Problem deleting the photo');
+            toast.error('Problem deleting the photo.');
             runInAction(() => {
                 this.setMainLoading = false;
             })
+        }
+    }
+
+    @action updateProfile = async (profile: Partial<IProfile>) => {
+        try {
+            await agent.Profiles.update(profile);
+            runInAction(() => {
+                if (profile.displayName !== this.rootStore.userStore.user!.displayName) {
+                    this.rootStore.userStore.user!.displayName = profile.displayName!;
+                }
+                this.profile = {...this.profile!, ...profile};
+            })
+        } catch (error) {
+            toast.error('Problem updating the About page.');
         }
     }
 }
