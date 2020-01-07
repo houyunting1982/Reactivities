@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading;
@@ -57,7 +58,7 @@ namespace Application.User {
                 var user = new AppUser {
                     DisplayName = request.DisplayName,
                     Email = request.Email,
-                    UserName = request.Username
+                    UserName = request.Username,
                 };
 
                 var result = await _userManager.CreateAsync(user, request.Password);
@@ -66,7 +67,7 @@ namespace Application.User {
                         DisplayName = user.DisplayName,
                         Token = _jwtGenerator.CreateToken(user),
                         Username = user.UserName,
-                        Image = user.Photos.FirstOrDefault(x => x.IsMain)?.Url
+                        Image = user.Photos?.FirstOrDefault(x => x.IsMain)?.Url
                     };
                 }
                 throw new Exception("Problem saving changes.");
