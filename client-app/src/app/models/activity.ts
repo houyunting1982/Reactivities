@@ -1,5 +1,3 @@
-import { runInAction } from "mobx";
-
 export interface IActivitiesEnvelope {
     activities: IActivity[];
     activityCount: number;
@@ -44,10 +42,7 @@ export class ActivityFormValues implements IActivityFormValues {
 
     constructor(init?: IActivityFormValues) {
         if (init && init.date) {
-            runInAction('init activity form value time', () => {
                 init.time = init.date;
-            })
-
         }
         Object.assign(this, init);
     }

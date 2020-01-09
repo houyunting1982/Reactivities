@@ -29,7 +29,7 @@ namespace Persistence.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("DATETIME");
 
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
@@ -131,7 +131,7 @@ namespace Persistence.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreateAt")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("DATETIME");
 
                     b.HasKey("Id");
 
@@ -172,7 +172,7 @@ namespace Persistence.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DateJoined")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("DATETIME");
 
                     b.Property<bool>("IsHost")
                         .HasColumnType("INTEGER");

@@ -30,7 +30,7 @@ namespace Infrastructure.Security
 
             var tokenDescriptor = new SecurityTokenDescriptor {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddDays(7), // Only for the deveoplment of the app. 7 days long for our token is ok.
+                Expires = DateTime.UtcNow.AddDays(1),
                 SigningCredentials = creds
             };
 

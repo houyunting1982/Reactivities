@@ -46,13 +46,9 @@ const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({
 }) => {
     const rootStore = useContext(RootStoreContext);
     const {
-        // eslint-disable-next-line
         createActivity,
-        // eslint-disable-next-line
         editActivity,
         submitting,
-        // eslint-disable-next-line
-        activity: initialFormState,
         loadActivity
     } = rootStore.activityStore;
 
